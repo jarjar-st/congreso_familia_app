@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class RegistroPage extends StatefulWidget {
   const RegistroPage({super.key});
@@ -95,8 +98,9 @@ class _FormularioPageState extends State<FormularioPage> {
 
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: nombreControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Nombre',
@@ -114,8 +118,9 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: apellidosControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Apellidos',
@@ -133,6 +138,7 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.number,
+                  controller: dniControler,
                   maxLength: 15,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
@@ -188,6 +194,7 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: celularControler,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   ],
@@ -210,8 +217,9 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: nombreConyugeControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Nombre de Esposa/o',
@@ -229,8 +237,9 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: apellidosConyugeControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Apellidos de Esposa/o',
@@ -248,8 +257,9 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: parroquiaControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Parroquia en la que se congrega',
@@ -263,8 +273,9 @@ class _FormularioPageState extends State<FormularioPage> {
                 const SizedBox(height: 20),
                 TextFormField(
                   keyboardType: TextInputType.name,
+                  controller: grupoControler,
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]')),
                   ],
                   decoration: const InputDecoration(
                     labelText: 'Movimiento/grupo al que pertenece',
@@ -277,16 +288,74 @@ class _FormularioPageState extends State<FormularioPage> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      // Si el formulario es válido, muestra un snackbar
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Procesando Datos')));
 
-                      print(emailControler.text);
+                      var body = {
+                        'nombre': nombreControler.text,
+                        'apellido': apellidosControler.text,
+                        'identidad': dniControler.text,
+                        'correo': emailControler.text,
+                        'celular': celularControler.text,
+                        'nombreConyuge': nombreConyugeControler.text,
+                        'apellidoConyuge': apellidosConyugeControler.text,
+                        'parroquia': parroquiaControler.text,
+                        'grupo': grupoControler.text,
+                      };
+
+                      print("ESTE ES EL BODY: $body");
+
+                      String result = await registerUser(body);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(result),
+                        ),
+                      );
+
+                      // try {
+                      //   var response = await http.post(
+                      //     Uri.parse('http://10.0.2.2:3002/register'),
+                      //     headers: {"Content-Type": "application/json"},
+                      //     body: jsonEncode(body),
+                      //   );
+
+                      //   print("ESTE ES EL RESPONSE: ${response.body}");
+
+                      //   if (response.statusCode == 409) {
+                      //     // Muestra un mensaje al usuario
+                      //     ScaffoldMessenger.of(context).showSnackBar(
+                      //       SnackBar(
+                      //           content: Text(
+                      //               'El correo electrónico ya está registrado')),
+                      //     );
+                      //   } else if (response.statusCode == 201) {
+                      //     print('Registro creado con éxito');
+                      //   } else {
+                      //     print('Error al crear el registro');
+                      //   }
+                      // } catch (e) {
+                      //   print("ESTE ES EL ERROR: $e");
+                      //   if (e.toString().contains(
+                      //       'El correo electrónico ya está registrado')) {
+                      //     // Muestra un mensaje al usuario
+                      //     ScaffoldMessenger.of(context).showSnackBar(
+                      //       SnackBar(
+                      //           content: Text(
+                      //               'El correo electrónico ya está registrado')),
+                      //     );
+                      //   }
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(
+                      //         content: Text(
+                      //             'Error al registrar, intente nuevamente')),
+                      //   );
+                      // }
                     }
                   },
-                  child: Text('Enviar'),
+                  child: const Text('Enviar'),
                 ),
               ],
             ),
@@ -294,6 +363,24 @@ class _FormularioPageState extends State<FormularioPage> {
         ),
       ),
     );
+  }
+}
+
+Future<String> registerUser(body) async {
+  var response = await http.post(
+    Uri.parse('http://10.0.2.2:3002/register'),
+    headers: {"Content-Type": "application/json"},
+    body: jsonEncode(body),
+  );
+
+  if (response.statusCode == 409) {
+    print(
+        "ESTO ES DESDE LA FUNCION REGISTRO: ${JsonDecoder().convert(response.body)['message']}");
+    return JsonDecoder().convert(response.body)['message'];
+  } else if (response.statusCode == 201) {
+    return 'Registro creado con éxito';
+  } else {
+    return 'Error al crear el registro';
   }
 }
 

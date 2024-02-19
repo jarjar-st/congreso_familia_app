@@ -22,8 +22,8 @@ model Registro{
   id Int @id @default(autoincrement())
   nombre String
   apellido String
-  identidad String
-  correo String
+  identidad String @unique
+  correo String @unique
   celular String?
   nombreConyuge String
   apellidoConyuge String
