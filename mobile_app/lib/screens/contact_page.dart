@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse(
+    'https://www.google.com/maps/search/?api=1&query=14.08337483595821,-87.1794319991498');
 
 class ContactoPage extends StatelessWidget {
   List contactViewList = [
-    ListTile(
+    const ListTile(
       iconColor: Colors.green,
-      leading: const Icon(
+      leading: Icon(
         Icons.map_outlined,
         size: 35,
       ),
-      title: const Text('Ubicación'),
-      subtitle: const Text('Dirección del Congreso'),
-      onTap: () {},
+      title: Text('Ubicación'),
+      subtitle: Text('Dirección del Congreso'),
+      onTap: launchUrlInit,
     ),
     ListTile(
       iconColor: Colors.green,
@@ -20,7 +24,17 @@ class ContactoPage extends StatelessWidget {
       ),
       title: const Text('Correo'),
       subtitle: const Text('Solicite Información'),
-      onTap: () {},
+      onTap: () {
+        final Uri params = Uri(
+          scheme: 'mailto',
+          path: 'example@example.com', // Reemplaza con tu dirección de correo
+          query:
+              'subject=Solicitud de Información&body=Hola, me gustaría solicitar más información.',
+        );
+
+        var url = params;
+        launchUrl(url);
+      },
     ),
     ListTile(
       iconColor: Colors.green,
@@ -30,9 +44,17 @@ class ContactoPage extends StatelessWidget {
       ),
       title: const Text('Llamar'),
       subtitle: const Text('Pregunte por el Congreso'),
-      onTap: () {},
+      onTap: () {
+        final Uri params = Uri(
+          scheme: 'tel',
+          path: '+1234567890', // Reemplaza con tu número de teléfono
+        );
+        launchUrl(params); // Reemplaza con tu número de teléfono
+      },
     ),
   ];
+
+  ContactoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,5 +63,11 @@ class ContactoPage extends StatelessWidget {
       separatorBuilder: (BuildContext context, int index) => Divider(),
       itemBuilder: (context, index) => contactViewList[index],
     );
+  }
+}
+
+Future<void> launchUrlInit() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }

@@ -8,7 +8,7 @@ class CongresoPage extends StatelessWidget {
         Icons.calendar_today,
         size: 35,
       ),
-      title: const Text('Agencia'),
+      title: const Text('Agenda'),
       subtitle: const Text('Programa de Charlas'),
       onTap: () {},
     ),
