@@ -1,8 +1,6 @@
-import 'package:congreso_familia_app/screens/congreso_page.dart';
-import 'package:congreso_familia_app/screens/contact_page.dart';
+import 'package:congreso_familia_app/screens/congreso_screens/oradores.dart';
+import 'package:congreso_familia_app/screens/home_page.dart';
 import 'package:congreso_familia_app/screens/register_page.dart';
-import 'package:congreso_familia_app/widgets/carousel.dart';
-import 'package:congreso_familia_app/widgets/mainNavigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,14 +28,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
-  Color _color = Colors.black;
-  Color _color2 = Colors.black;
-  Color _color3 = Colors.black;
 
   final List<Widget> _children = [
-    RegistroPage(),
-    CongresoPage(),
-    ContactoPage(),
+    Home(),
+    FormularioPage(),
+    Oradores(),
   ];
 
   void onTabTapped(int index) {
@@ -48,104 +43,43 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Congreso de Programación'),
-      ),
-      body: Column(
-        children: [
-          Carousel(),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: _currentIndex == 0
-                              ? Colors.blue
-                              : Colors.transparent,
-                          width: 2.0,
-                        ),
-                      ),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        onTabTapped(0);
-                        _color = Colors.blue;
-                        _color2 = Colors.black;
-                        _color3 = Colors.black;
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: _color,
-                      ),
-                      child: Text('REGISTRO '),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: _currentIndex == 1
-                              ? Colors.orange
-                              : Colors.transparent,
-                          width: 2.0,
-                        ),
-                      ),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        onTabTapped(1);
-                        _color2 = Colors.orange;
-                        _color = Colors.black;
-                        _color3 = Colors.black;
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: _color2,
-                      ),
-                      child: Text('CONGRESO'),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: _currentIndex == 2
-                              ? Colors.green
-                              : Colors.transparent,
-                          width: 2.0,
-                        ),
-                      ),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        onTabTapped(2);
-                        _color3 = Colors.green;
-                        _color = Colors.black;
-                        _color2 = Colors.black;
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: _color3,
-                      ),
-                      child: Text('CONTACTO'),
-                    ),
-                  ),
-                ),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.blue,
+          title: const Text('Congreso de la Familia'),
+        ),
+        body: _children[_currentIndex],
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _currentIndex,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.home),
+              label: "Inicio",
             ),
-          ),
-          Expanded(
-            child: _children[_currentIndex],
-          ),
-        ],
+            NavigationDestination(
+              icon: Icon(Icons.person_add),
+              label: "Registro",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.calendar_today),
+              label: "Agenda",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.people_alt),
+              label: "Oradores",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.assignment),
+              label: "Resumen",
+            ),
+          ],
+          onDestinationSelected: (value) {
+            onTabTapped(value);
+          },
+        ),
       ),
-      bottomNavigationBar: MainNavigation(),
     );
   }
 }

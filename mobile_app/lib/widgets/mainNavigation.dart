@@ -1,13 +1,25 @@
+import 'package:congreso_familia_app/main.dart';
+import 'package:congreso_familia_app/screens/congreso_screens/oradores.dart';
+
+import 'package:congreso_familia_app/screens/register_page.dart';
 import 'package:flutter/material.dart';
 
-class MainNavigation extends StatelessWidget {
+class MainNavigation extends StatefulWidget {
   const MainNavigation({
     super.key,
   });
 
   @override
+  State<MainNavigation> createState() => _MainNavigationState();
+}
+
+class _MainNavigationState extends State<MainNavigation> {
+  int currentIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      selectedIndex: currentIndex,
       destinations: const [
         NavigationDestination(
           icon: Icon(Icons.home),
@@ -30,6 +42,55 @@ class MainNavigation extends StatelessWidget {
           label: "Resumen",
         ),
       ],
+      onDestinationSelected: (value) {
+        if (value == 0) {
+          setState(() {
+            currentIndex = value;
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyHomePage(),
+            ),
+          );
+        } else if (value == 1) {
+          setState(() {
+            currentIndex = value;
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FormularioPage(),
+            ),
+          );
+
+          // } else if (value == 2) {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => CongresoPage(),
+          //     ),
+          //   );
+        } else if (value == 3) {
+          setState(() {
+            currentIndex = value;
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Oradores(),
+            ),
+          );
+          // } else if (value == 4) {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => Resumen(),
+          //     ),
+          //   );
+          // }
+        }
+      },
     );
   }
 }
