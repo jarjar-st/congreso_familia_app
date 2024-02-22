@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -110,6 +110,9 @@ class Oradores extends StatelessWidget {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
+                  List temasList =
+                      snapshot.data![index]['attributes']['horarios']["data"];
+                  print(temasList);
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ExpansionTile(
@@ -123,7 +126,7 @@ class Oradores extends StatelessWidget {
                         ),
                       ),
                       title: Text(
-                        '${oradoresList[index]['nombre']}',
+                        '${snapshot.data![index]['attributes']['Nombre']}',
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -135,7 +138,7 @@ class Oradores extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.network(
-                                '${oradoresList[index]['imagen']}',
+                                'http://10.0.2.2:1337${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["url"]}',
                                 width: MediaQuery.of(context).size.width * 1,
                                 height:
                                     MediaQuery.of(context).size.height * 0.3,
@@ -144,7 +147,7 @@ class Oradores extends StatelessWidget {
                               ),
                               const SizedBox(height: 8.0),
                               Text(
-                                '${oradoresList[index]['nombre']}',
+                                '${snapshot.data![index]['attributes']['Nombre']}',
                                 style: const TextStyle(
                                   fontSize: 24.0,
                                   fontWeight: FontWeight.bold,
@@ -152,11 +155,50 @@ class Oradores extends StatelessWidget {
                               ),
                               const SizedBox(height: 15.0),
                               Text(
-                                '${oradoresList[index]['biografia']}',
+                                '${snapshot.data![index]['attributes']['Biografia'][0]["children"][0]["text"]}',
                                 style: const TextStyle(
                                   fontSize: 15.0,
                                 ),
                               ),
+                              const SizedBox(height: 15.0),
+                              (temasList.length > 0)
+                                  ? Text("Horarios:")
+                                  : Container(),
+                              const SizedBox(height: 15.0),
+                              (temasList.length > 0)
+                                  ? Column(
+                                      children: temasList
+                                          .map<Widget>((tema) {
+                                            // Parse the date string into a DateTime object
+                                            DateTime fecha = DateTime.parse(
+                                                    tema["attributes"]["Fecha"])
+                                                .toUtc();
+
+                                            fecha = fecha
+                                                .subtract(Duration(hours: 6));
+
+                                            // Format the DateTime object into a more visual string
+                                            String fechaFormateada = DateFormat(
+                                                    'dd-MMMM-yyyy – hh:mm a')
+                                                .format(fecha);
+
+                                            return Row(
+                                              children: [
+                                                const Text('• ',
+                                                    style: TextStyle(
+                                                        fontSize: 16)),
+                                                Expanded(
+                                                  child: Text(
+                                                      '${tema["attributes"]["Titulo"]} - $fechaFormateada'),
+                                                ),
+                                              ],
+                                            );
+                                          })
+                                          .toList()
+                                          .cast<Widget>()
+                                          .toList(),
+                                    )
+                                  : Container(),
                             ],
                           ),
                         ),
@@ -170,7 +212,9 @@ class Oradores extends StatelessWidget {
                   "Ocurrio esto: ${snapshot.error} y esto: ${snapshot.data}");
             }
 
-            return CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }),
     );
   }

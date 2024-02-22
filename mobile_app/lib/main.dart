@@ -4,9 +4,14 @@ import 'package:congreso_familia_app/screens/congreso_screens/resumen.dart';
 import 'package:congreso_familia_app/screens/home_page.dart';
 import 'package:congreso_familia_app/screens/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 void main() {
-  runApp(MyApp());
+  initializeDateFormatting('es', null).then((_) {
+    Intl.defaultLocale = 'es';
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
