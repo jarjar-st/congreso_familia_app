@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oradores",
+  "info": {
+    "singularName": "orador",
+    "pluralName": "oradores",
+    "displayName": "Orador"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Biografia": {
+      "type": "blocks",
+      "required": true
+    },
+    "Imagenes": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "horarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::horario.horario",
+      "mappedBy": "orador"
+    }
+  }
+}

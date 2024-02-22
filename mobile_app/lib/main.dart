@@ -1,4 +1,6 @@
+import 'package:congreso_familia_app/screens/congreso_screens/agenda.dart';
 import 'package:congreso_familia_app/screens/congreso_screens/oradores.dart';
+import 'package:congreso_familia_app/screens/congreso_screens/resumen.dart';
 import 'package:congreso_familia_app/screens/home_page.dart';
 import 'package:congreso_familia_app/screens/register_page.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,17 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _children = [
     Home(),
     FormularioPage(),
+    AgendaScreen(),
     Oradores(),
+    resumenPage(),
+  ];
+
+  final List _title = [
+    'Congreso de la Familia',
+    'Registro',
+    'Agenda',
+    'Oradores',
+    'Resumen',
   ];
 
   void onTabTapped(int index) {
@@ -48,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.blue,
-          title: const Text('Congreso de la Familia'),
+          title: Text('${_title[_currentIndex]}'),
         ),
         body: _children[_currentIndex],
         bottomNavigationBar: NavigationBar(

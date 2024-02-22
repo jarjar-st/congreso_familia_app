@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "horarios",
+  "info": {
+    "singularName": "horario",
+    "pluralName": "horarios",
+    "displayName": "Horario",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "apertura",
+        "charla",
+        "almuerzo"
+      ],
+      "required": true
+    },
+    "orador": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::orador.orador",
+      "inversedBy": "horarios"
+    },
+    "Resumen": {
+      "type": "blocks",
+      "required": true
+    },
+    "Fecha": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}
