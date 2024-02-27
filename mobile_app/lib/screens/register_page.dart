@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-import 'package:congreso_familia_app/widgets/mainNavigation.dart';
+import 'package:congreso_familia_app/config.dart';
+import 'package:congreso_familia_app/controller/menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class RegistroPage extends StatefulWidget {
@@ -25,17 +27,13 @@ class _RegistroPageState extends State<RegistroPage> {
         title: const Text('Registrar Asistencia'),
         subtitle: const Text('Registre su asistencia al Congreso'),
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => FormularioPage()),
-          );
+          Get.find<Controller>().changeTabIndex(1);
         },
       ),
     ];
 
-    return ListView.separated(
+    return ListView.builder(
       itemCount: registroViewList.length,
-      separatorBuilder: (BuildContext context, int index) => Divider(),
       itemBuilder: (context, index) => registroViewList[index],
     );
   }
@@ -168,7 +166,7 @@ class _FormularioPageState extends State<FormularioPage> {
                 decoration: InputDecoration(
                   labelText: 'Correo',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(10.0),
                     ),
                     borderSide: BorderSide(color: emailBorderColor, width: 1.0),
@@ -179,7 +177,7 @@ class _FormularioPageState extends State<FormularioPage> {
                   setState(
                     () {
                       if (validateEmail(value) == null) {
-                        emailBorderColor = Color(0xFFE91e63);
+                        emailBorderColor = const Color(0xFFE91e63);
                       } else {
                         emailBorderColor = Colors.grey.shade300;
                       }
@@ -284,20 +282,23 @@ class _FormularioPageState extends State<FormularioPage> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
+                  print("ESTE ES EL FORM KEY: ${dniControler.text}");
                   if (_formKey.currentState!.validate()) {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Procesando Datos')));
 
                     var body = {
-                      'nombre': nombreControler.text,
-                      'apellido': apellidosControler.text,
-                      'identidad': dniControler.text,
-                      'correo': emailControler.text,
-                      'celular': celularControler.text,
-                      'nombreConyuge': nombreConyugeControler.text,
-                      'apellidoConyuge': apellidosConyugeControler.text,
-                      'parroquia': parroquiaControler.text,
-                      'grupo': grupoControler.text,
+                      'data': {
+                        'Nombre': nombreControler.text,
+                        'Apellido': apellidosControler.text,
+                        'Identidad': dniControler.text,
+                        'Correo': emailControler.text,
+                        'Celular': celularControler.text,
+                        'NombreConyuge': nombreConyugeControler.text,
+                        'ApellidoConyuge': apellidosConyugeControler.text,
+                        'Parroquia': parroquiaControler.text,
+                        'Grupo': grupoControler.text,
+                      }
                     };
 
                     print("ESTE ES EL BODY: $body");
@@ -309,6 +310,7 @@ class _FormularioPageState extends State<FormularioPage> {
                         content: Text(result),
                       ),
                     );
+                    print("SI ENTRAAAAA");
 
                     // try {
                     //   var response = await http.post(
@@ -361,17 +363,20 @@ class _FormularioPageState extends State<FormularioPage> {
 }
 
 Future<String> registerUser(body) async {
+  print("ESTE ES EL BODY: $body");
   var response = await http.post(
-    Uri.parse('http://10.0.2.2:3002/register'),
-    headers: {"Content-Type": "application/json"},
+    Uri.parse('${Config.API_URL}/api/participantes'),
+    headers: {'Content-Type': 'application/json; charset=UTF-8'},
     body: jsonEncode(body),
   );
+
+  print("REGISTROOOOOOO: ${JsonDecoder().convert(response.body)}");
 
   if (response.statusCode == 409) {
     print(
         "ESTO ES DESDE LA FUNCION REGISTRO: ${JsonDecoder().convert(response.body)['message']}");
     return JsonDecoder().convert(response.body)['message'];
-  } else if (response.statusCode == 201) {
+  } else if (response.statusCode == 201 || response.statusCode == 200) {
     return 'Registro creado con éxito';
   } else {
     return 'Error al crear el registro';

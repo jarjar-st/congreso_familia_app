@@ -38,6 +38,14 @@
     "Fecha": {
       "type": "datetime",
       "required": true
+    },
+    "Inicio": {
+      "type": "time",
+      "required": true
+    },
+    "Final": {
+      "type": "time",
+      "required": true
     }
   }
 }

@@ -805,6 +805,8 @@ export interface ApiHorarioHorario extends Schema.CollectionType {
     >;
     Resumen: Attribute.Blocks & Attribute.Required;
     Fecha: Attribute.DateTime & Attribute.Required;
+    Inicio: Attribute.Time & Attribute.Required;
+    Final: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -860,6 +862,55 @@ export interface ApiOradorOrador extends Schema.CollectionType {
   };
 }
 
+export interface ApiParticipanteParticipante extends Schema.CollectionType {
+  collectionName: 'participantes';
+  info: {
+    singularName: 'participante';
+    pluralName: 'participantes';
+    displayName: 'Participante';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String & Attribute.Required;
+    Apellido: Attribute.String & Attribute.Required;
+    Identidad: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 15;
+        maxLength: 15;
+      }>;
+    Correo: Attribute.String & Attribute.Required;
+    NombreConyuge: Attribute.String & Attribute.Required;
+    ApellidoConyuge: Attribute.String & Attribute.Required;
+    Parroquia: Attribute.String;
+    Grupo: Attribute.String;
+    Celular: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        minLength: 8;
+        maxLength: 8;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::participante.participante',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::participante.participante',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -880,6 +931,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::horario.horario': ApiHorarioHorario;
       'api::orador.orador': ApiOradorOrador;
+      'api::participante.participante': ApiParticipanteParticipante;
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participantes",
+  "info": {
+    "singularName": "participante",
+    "pluralName": "participantes",
+    "displayName": "Participante",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Apellido": {
+      "type": "string",
+      "required": true
+    },
+    "Identidad": {
+      "type": "string",
+      "required": true,
+      "maxLength": 15,
+      "minLength": 15,
+      "unique": true
+    },
+    "Correo": {
+      "type": "string",
+      "required": true
+    },
+    "NombreConyuge": {
+      "type": "string",
+      "required": true
+    },
+    "ApellidoConyuge": {
+      "type": "string",
+      "required": true
+    },
+    "Parroquia": {
+      "type": "string"
+    },
+    "Grupo": {
+      "type": "string"
+    },
+    "Celular": {
+      "type": "string",
+      "maxLength": 8,
+      "minLength": 8
+    }
+  }
+}

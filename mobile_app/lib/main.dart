@@ -6,11 +6,13 @@ import 'package:congreso_familia_app/screens/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:get/get.dart';
+import 'package:congreso_familia_app/controller/menu_controller.dart';
 
 void main() {
   initializeDateFormatting('es', null).then((_) {
     Intl.defaultLocale = 'es';
-    runApp(MyApp());
+    runApp(const MyApp());
   });
 }
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -27,14 +29,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _currentIndex = 0;
+  final Controller c = Get.put(Controller());
 
   final List<Widget> _children = [
     Home(),
@@ -52,50 +52,48 @@ class _MyHomePageState extends State<MyHomePage> {
     'Resumen',
   ];
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          title: Text('${_title[_currentIndex]}'),
-        ),
-        body: _children[_currentIndex],
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: _currentIndex,
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home),
-              label: "Inicio",
+      child: GetBuilder<Controller>(
+        builder: (controller) {
+          return Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              backgroundColor: Colors.blue,
+              title: Text('${_title[controller.currentIndex.value]}'),
             ),
-            NavigationDestination(
-              icon: Icon(Icons.person_add),
-              label: "Registro",
+            body: _children[controller.currentIndex.value],
+            bottomNavigationBar: NavigationBar(
+              selectedIndex: controller.currentIndex.value,
+              destinations: const [
+                NavigationDestination(
+                  icon: Icon(Icons.home),
+                  label: "Inicio",
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.person_add),
+                  label: "Registro",
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.calendar_today),
+                  label: "Agenda",
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.people_alt),
+                  label: "Oradores",
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.assignment),
+                  label: "Resumen",
+                ),
+              ],
+              onDestinationSelected: (value) {
+                controller.changeTabIndex(value);
+              },
             ),
-            NavigationDestination(
-              icon: Icon(Icons.calendar_today),
-              label: "Agenda",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.people_alt),
-              label: "Oradores",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.assignment),
-              label: "Resumen",
-            ),
-          ],
-          onDestinationSelected: (value) {
-            onTabTapped(value);
-          },
-        ),
+          );
+        },
       ),
     );
   }
