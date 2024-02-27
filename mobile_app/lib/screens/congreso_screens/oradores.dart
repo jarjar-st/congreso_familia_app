@@ -101,6 +101,166 @@ class Oradores extends StatelessWidget {
   //     ),
   //   );
   // }
+  Widget buildRichText(List<dynamic> data) {
+    List<TextSpan> children = [];
+
+    for (var item in data) {
+      if (item['type'] == 'paragraph') {
+        for (var child in item['children']) {
+          if (child['bold'] == true && child['italic'] == true) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == true && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == true) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+              ),
+            );
+          }
+        }
+      } else if (item['type'] == 'list') {
+        children.add(
+          const TextSpan(
+            text: '\n',
+          ),
+        );
+        for (var listItem in item['children']) {
+          for (var i = 0; i < listItem['children'].length; i++) {
+            if (i == 0) {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            } else {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RichText(
+          text: TextSpan(
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+            ),
+            children: children,
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -195,12 +355,14 @@ class Oradores extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 15.0),
-                              Text(
-                                '${snapshot.data![index]['attributes']['Biografia'][0]["children"][0]["text"]}',
-                                style: const TextStyle(
-                                  fontSize: 15.0,
-                                ),
-                              ),
+                              buildRichText(snapshot.data![index]['attributes']
+                                  ['Biografia']),
+                              // Text(
+                              //   '${snapshot.data![index]['attributes']['Biografia'][0]["children"][0]["text"]}',
+                              //   style: const TextStyle(
+                              //     fontSize: 15.0,
+                              //   ),
+                              // ),
                               const SizedBox(height: 15.0),
                               (temasList.isNotEmpty)
                                   ? const Text("Horarios:")

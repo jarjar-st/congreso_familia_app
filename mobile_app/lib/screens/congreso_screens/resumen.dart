@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:intl/intl.dart';
@@ -7,7 +8,7 @@ import 'package:congreso_familia_app/config.dart';
 
 Future<List> fetchHorarios() async {
   final response = await http.get(Uri.parse(
-      '${Config.API_URL}/api/horarios?populate[orador][populate][Imagenes][fields]=url&populate[orador][fields]=Nombre&fields[1]=Titulo&fields[2]=Fecha&fields[3]=Inicio&fields[4]=Final&fields[5]=Resumen&filters[Tipo][\$eq]=charla'));
+      '${Config.API_URL}/api/horarios?populate[orador][populate][Imagenes][fields]=url&populate[orador][populate][Imagenes][fields]=formats&populate[orador][fields]=Nombre&fields[1]=Titulo&fields[2]=Fecha&fields[3]=Inicio&fields[4]=Final&fields[5]=Resumen&filters[Tipo][\$eq]=charla'));
 
   if (response.statusCode == 200) {
     var res = jsonDecode(response.body);
@@ -33,36 +34,163 @@ class resumenPage extends StatefulWidget {
 
 class _resumenPageState extends State<resumenPage> {
   Widget buildRichText(List<dynamic> data) {
-    List<Widget> children = [];
+    List<TextSpan> children = [];
 
     for (var item in data) {
       if (item['type'] == 'paragraph') {
         for (var child in item['children']) {
-          if (child['bold'] == true) {
+          if (child['bold'] == true && child['italic'] == true) {
             children.add(
-              Text(
-                child['text'],
-                style: TextStyle(fontWeight: FontWeight.bold),
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             );
-          } else {
-            children.add(Text(child['text']));
+          }
+          if (child['bold'] == true && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == true) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+              ),
+            );
           }
         }
       } else if (item['type'] == 'list') {
+        children.add(
+          const TextSpan(
+            text: '\n',
+          ),
+        );
         for (var listItem in item['children']) {
-          children.add(
-            Text(
-              '• ' + listItem['children'][0]['text'],
-            ),
-          );
+          for (var i = 0; i < listItem['children'].length; i++) {
+            if (i == 0) {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            } else {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            }
+          }
         }
       }
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: children,
+      children: [
+        RichText(
+          text: TextSpan(
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+            ),
+            children: children,
+          ),
+        ),
+      ],
     );
   }
 
@@ -101,7 +229,7 @@ class _resumenPageState extends State<resumenPage> {
                     leading: ClipOval(
                       child: CachedNetworkImage(
                         imageUrl:
-                            '${Config.API_URL}${snapshot.data![index]['attributes']['orador']["data"]["attributes"]["Imagenes"]["data"][0]["attributes"]["url"]}',
+                            '${Config.API_URL}${snapshot.data![index]['attributes']['orador']["data"]["attributes"]["Imagenes"]["data"][0]["attributes"]["formats"]["thumbnail"]["url"]}',
                         width: 60,
                         height: 60,
                         fit: BoxFit.cover,
