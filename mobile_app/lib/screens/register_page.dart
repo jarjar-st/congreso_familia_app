@@ -282,10 +282,21 @@ class _FormularioPageState extends State<FormularioPage> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
-                  print("ESTE ES EL FORM KEY: ${dniControler.text}");
                   if (_formKey.currentState!.validate()) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Procesando Datos')));
+                      SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        content: const Text(
+                          'Procesando Datos...',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    );
 
                     var body = {
                       'data': {
@@ -301,16 +312,24 @@ class _FormularioPageState extends State<FormularioPage> {
                       }
                     };
 
-                    print("ESTE ES EL BODY: $body");
-
                     String result = await registerUser(body);
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text(result),
+                        duration: const Duration(seconds: 5),
+                        behavior: SnackBarBehavior.floating,
+                        backgroundColor: result == 'Registro creado con éxito'
+                            ? Colors.green
+                            : Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        content: Text(
+                          result,
+                          style: const TextStyle(fontSize: 15),
+                        ),
                       ),
                     );
-                    print("SI ENTRAAAAA");
 
                     // try {
                     //   var response = await http.post(
@@ -363,19 +382,25 @@ class _FormularioPageState extends State<FormularioPage> {
 }
 
 Future<String> registerUser(body) async {
-  print("ESTE ES EL BODY: $body");
+  String result = '';
   var response = await http.post(
     Uri.parse('${Config.API_URL}/api/participantes'),
     headers: {'Content-Type': 'application/json; charset=UTF-8'},
     body: jsonEncode(body),
   );
 
-  print("REGISTROOOOOOO: ${JsonDecoder().convert(response.body)}");
-
-  if (response.statusCode == 409) {
-    print(
-        "ESTO ES DESDE LA FUNCION REGISTRO: ${JsonDecoder().convert(response.body)['message']}");
-    return JsonDecoder().convert(response.body)['message'];
+  if (response.statusCode == 400) {
+    List errors = const JsonDecoder().convert(response.body)['error']['details']
+        ['errors'];
+    errors.forEach((element) {
+      if (element['path'][0] == 'Correo') {
+        result = 'El correo electrónico ya está registrado';
+      }
+      if (element['path'][0] == 'Identidad') {
+        result = 'El numero de Identidad ya está registrado';
+      }
+    });
+    return result;
   } else if (response.statusCode == 201 || response.statusCode == 200) {
     return 'Registro creado con éxito';
   } else {

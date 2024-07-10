@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:intl/intl.dart';
@@ -7,7 +8,7 @@ import 'package:congreso_familia_app/config.dart';
 
 Future<List> fetchHorarios() async {
   final response = await http.get(Uri.parse(
-      '${Config.API_URL}/api/horarios?populate[orador][populate][Imagenes][fields]=url&populate[orador][fields]=Nombre&fields[1]=Titulo&fields[2]=Fecha&fields[3]=Inicio&fields[4]=Final&fields[5]=Resumen&filters[Tipo][\$eq]=charla'));
+      '${Config.API_URL}/api/horarios?populate[orador][populate][Imagenes][fields]=url&populate[orador][populate][Imagenes][fields]=formats&populate[orador][fields]=Nombre&fields[1]=Titulo&fields[2]=Fecha&fields[3]=Inicio&fields[4]=Final&fields[5]=Resumen&filters[Tipo][\$eq]=charla'));
 
   if (response.statusCode == 200) {
     var res = jsonDecode(response.body);
@@ -228,7 +229,7 @@ class _resumenPageState extends State<resumenPage> {
                     leading: ClipOval(
                       child: CachedNetworkImage(
                         imageUrl:
-                            '${Config.API_URL}${snapshot.data![index]['attributes']['orador']["data"]["attributes"]["Imagenes"]["data"][0]["attributes"]["url"]}',
+                            '${Config.API_URL}${snapshot.data![index]['attributes']['orador']["data"]["attributes"]["Imagenes"]["data"][0]["attributes"]["formats"]["thumbnail"]["url"]}',
                         width: 60,
                         height: 60,
                         fit: BoxFit.cover,
