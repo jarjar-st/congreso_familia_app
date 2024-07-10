@@ -33,36 +33,163 @@ class resumenPage extends StatefulWidget {
 
 class _resumenPageState extends State<resumenPage> {
   Widget buildRichText(List<dynamic> data) {
-    List<Widget> children = [];
+    List<TextSpan> children = [];
 
     for (var item in data) {
       if (item['type'] == 'paragraph') {
         for (var child in item['children']) {
-          if (child['bold'] == true) {
+          if (child['bold'] == true && child['italic'] == true) {
             children.add(
-              Text(
-                child['text'],
-                style: TextStyle(fontWeight: FontWeight.bold),
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             );
-          } else {
-            children.add(Text(child['text']));
+          }
+          if (child['bold'] == true && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == true) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            );
+          }
+          if (child['bold'] == null && child['italic'] == null) {
+            children.add(
+              TextSpan(
+                text: child['text'],
+              ),
+            );
           }
         }
       } else if (item['type'] == 'list') {
+        children.add(
+          const TextSpan(
+            text: '\n',
+          ),
+        );
         for (var listItem in item['children']) {
-          children.add(
-            Text(
-              '• ' + listItem['children'][0]['text'],
-            ),
-          );
+          for (var i = 0; i < listItem['children'].length; i++) {
+            if (i == 0) {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: '\n• ' + listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            } else {
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == true &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == true) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                );
+              }
+              if (listItem['children'][i]["bold"] == null &&
+                  listItem['children'][i]["italic"] == null) {
+                children.add(
+                  TextSpan(
+                    text: listItem['children'][i]['text'],
+                  ),
+                );
+              }
+            }
+          }
         }
       }
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: children,
+      children: [
+        RichText(
+          text: TextSpan(
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+            ),
+            children: children,
+          ),
+        ),
+      ],
     );
   }
 
