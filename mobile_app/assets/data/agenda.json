@@ -1,0 +1,72 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "Titulo": "Dignidad y sinodalidad",
+        "Tipo": "charla",
+        "Fecha": "2024-08-21T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000"
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "Titulo": "La dignidad humana en el magisterio del Papa Francisco",
+        "Tipo": "charla",
+        "Fecha": "2024-08-21T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000"
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "Titulo": "Una conciencia progresiva de la centralidad de la dignidad humana",
+        "Tipo": "charla",
+        "Fecha": "2024-08-22T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000"
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "Titulo": "La iglesia anuncia, promueve y se hace garante de la dignidad humana",
+        "Tipo": "charla",
+        "Fecha": "2024-08-22T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000"
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "Titulo": "La dignidad, fundamento de los derechos y de los deberes humanos",
+        "Tipo": "charla",
+        "Fecha": "2024-08-23T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000"
+      }
+    },
+    {
+      "id": 6,
+      "attributes": {
+        "Titulo": "Algunas violaciones graves de la dignidad humana",
+        "Tipo": "charla",
+        "Fecha": "2024-08-23T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 6
+    }
+  }
+}

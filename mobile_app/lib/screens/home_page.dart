@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   Color _color3 = Colors.black;
 
   final List<Widget> _children = [
-    RegistroPage(),
+    const RegistroPage(),
     CongresoPage(),
     ContactoPage(),
   ];
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Carousel(),
+        const Carousel(),
         Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
                     style: TextButton.styleFrom(
                       foregroundColor: _color,
                     ),
-                    child: Text('REGISTRO '),
+                    child: const Text('REGISTRO '),
                   ),
                 ),
               ),
@@ -89,7 +89,7 @@ class _HomeState extends State<Home> {
                     style: TextButton.styleFrom(
                       foregroundColor: _color2,
                     ),
-                    child: Text('CONGRESO'),
+                    child: const Text('CONGRESO'),
                   ),
                 ),
               ),
@@ -115,7 +115,7 @@ class _HomeState extends State<Home> {
                     style: TextButton.styleFrom(
                       foregroundColor: _color3,
                     ),
-                    child: Text('CONTACTO'),
+                    child: const Text('CONTACTO'),
                   ),
                 ),
               ),

@@ -1,26 +1,38 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:congreso_familia_app/config.dart';
+import 'package:congreso_familia_app/screens/congreso_screens/agenda.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<List> fetchOradores() async {
-  final response = await http.get(Uri.parse(
-      '${Config.API_URL}/api/oradores?populate[horarios][fields][0]=Titulo&populate[horarios][fields][1]=Fecha&populate[Imagenes][fields]=url&populate[Imagenes][fields]=formats'));
+List<dynamic>? _cachedOradores;
 
-  if (response.statusCode == 200) {
-    var res = jsonDecode(response.body);
-    List resList = res["data"];
-    print("ESTA ES LA DATAAAAAA: ${res["data"][0]["attributes"]}");
-    print(res["data"][0]["attributes"]["Nombre"]);
-    return resList;
-  } else {
-    throw Exception('Failed to load oradores');
-  }
-}
+// Future<List> fetchOradores() async {
+//   // Verificar si ya tenemos datos en la caché
+//   if (_cachedOradores != null) {
+//     return _cachedOradores!;
+//   }
 
-class Oradores extends StatelessWidget {
+//   // Realizar la llamada al servidor si no hay datos en la caché
+//   final response = await http.get(Uri.parse(
+//       '${Config.API_URL}/api/oradores?populate[horarios][fields][0]=Titulo&populate[horarios][fields][1]=Fecha&populate[Imagenes][fields]=url&populate[Imagenes][fields]=formats'));
+
+//   if (response.statusCode == 200) {
+//     var res = jsonDecode(response.body);
+//     List resList = res["data"];
+
+//     // Almacenar los datos obtenidos en la caché
+//     _cachedOradores = resList;
+
+//     return resList;
+//   } else {
+//     throw Exception('Failed to load oradores');
+//   }
+// }
+
+class Oradores extends StatefulWidget {
   // List oradoresList = [
   //   {
   //     'nombre': 'Cardenal Oscar Rodriguez',
@@ -50,57 +62,38 @@ class Oradores extends StatelessWidget {
   //         'Es conocido por su labor en la defensa de los derechos humanos y por su compromiso con la justicia social.'
   //   },
   // ];
-  Oradores({Key? key}) : super(key: key);
+  const Oradores({Key? key}) : super(key: key);
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return SafeArea(
-  //     child: ListView.separated(
-  //       itemCount: oradoresList.length,
-  //       separatorBuilder: (BuildContext context, int index) => Divider(),
-  //       itemBuilder: (BuildContext context, int index) {
-  //         var temas = oradoresList[index]['tema'].split('\n');
-  //         return ListTile(
-  //           // leading: CircleAvatar(
-  //           //   foregroundColor: Colors.blue,
-  //           //   radius: 40,
-  //           //   backgroundImage: NetworkImage('${oradoresList[index]['imagen']}'),
-  //           // ),
-  //           leading: ClipOval(
-  //             child: Image.network(
-  //               '${oradoresList[index]['imagen']}',
-  //               width: 60,
-  //               height: 60,
-  //               fit: BoxFit.cover,
-  //               alignment: Alignment.topCenter,
-  //             ),
-  //           ),
-  //           title: Text('${oradoresList[index]['nombre']}'),
-  //           subtitle: Column(
-  //             crossAxisAlignment: CrossAxisAlignment.start,
-  //             children: temas.map<Widget>((tema) {
-  //               return Row(
-  //                 children: [
-  //                   Text('• ', style: TextStyle(fontSize: 16)),
-  //                   Expanded(child: Text(tema)),
-  //                 ],
-  //               );
-  //             }).toList(),
-  //           ),
-  //           onTap: () {
-  //             Navigator.push(
-  //               context,
-  //               MaterialPageRoute(
-  //                 builder: (context) =>
-  //                     OradorDetalle(orador: oradoresList[index]),
-  //               ),
-  //             );
-  //           },
-  //         );
-  //       },
-  //     ),
-  //   );
-  // }
+  @override
+  State<Oradores> createState() => _OradoresState();
+}
+
+class _OradoresState extends State<Oradores> {
+  @override
+  Future<List<dynamic>> fetchOradoresLocal() async {
+    print("entroooooo");
+    // Carga el archivo JSON como un string
+    String jsonString =
+        await rootBundle.loadString('assets/data/oradores2.json');
+    print("ESTO ESTA DENTRO DEL JJJJJJJJSSSSSSOOOOON: $jsonString");
+
+    // Decodifica el string JSON a una lista de mapas
+    var jsonData = jsonDecode(jsonString);
+
+    List resList = jsonData["data"];
+
+    print("ESTO ESTA DENTRO DEL JJJJJJJJSSSSSSOOOOON: $jsonData");
+
+    return resList;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    fetchOradoresLocal();
+    super.initState();
+  }
+
   Widget buildRichText(List<dynamic> data) {
     List<TextSpan> children = [];
 
@@ -266,7 +259,7 @@ class Oradores extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: FutureBuilder(
-          future: fetchOradores(),
+          future: fetchOradoresLocal(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
@@ -279,19 +272,26 @@ class Oradores extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ExpansionTile(
                       leading: ClipOval(
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              '${Config.API_URL}${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["formats"]["thumbnail"]["url"]}',
+                        // child: CachedNetworkImage(
+                        //   imageUrl:
+                        //       '${Config.API_URL}${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["formats"]["thumbnail"]["url"]}',
+                        //   width: 60,
+                        //   height: 60,
+                        //   fit: BoxFit.cover,
+                        //   alignment: Alignment.topCenter,
+                        //   progressIndicatorBuilder:
+                        //       (context, url, downloadProgress) =>
+                        //           CircularProgressIndicator(
+                        //               value: downloadProgress.progress),
+                        //   errorWidget: (context, url, error) =>
+                        //       const Icon(Icons.error),
+                        // ),
+                        child: Image.asset(
+                          "${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["url"]}",
                           width: 60,
                           height: 60,
                           fit: BoxFit.cover,
                           alignment: Alignment.topCenter,
-                          progressIndicatorBuilder:
-                              (context, url, downloadProgress) =>
-                                  CircularProgressIndicator(
-                                      value: downloadProgress.progress),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
                         ),
                       ),
                       title: Text(
@@ -306,46 +306,66 @@ class Oradores extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              (snapshot
-                                          .data![index]['attributes']
-                                              ['Imagenes']["data"]
-                                          .length >
-                                      1)
-                                  ? CachedNetworkImage(
-                                      imageUrl:
-                                          '${Config.API_URL}${snapshot.data![index]['attributes']['Imagenes']["data"][1]["attributes"]["formats"]["medium"]["url"]}',
-                                      width:
-                                          MediaQuery.of(context).size.width * 1,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.3,
-                                      fit: BoxFit.cover,
-                                      alignment: const Alignment(0, -0.5),
-                                      progressIndicatorBuilder: (context, url,
-                                              downloadProgress) =>
-                                          LinearProgressIndicator(
-                                              value: downloadProgress.progress),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    )
-                                  : CachedNetworkImage(
-                                      imageUrl:
-                                          'http://10.0.2.2:1337${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["formats"]["medium"]["url"]}',
-                                      width:
-                                          MediaQuery.of(context).size.width * 1,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.3,
-                                      fit: BoxFit.cover,
-                                      alignment: const Alignment(0, -0.5),
-                                      progressIndicatorBuilder:
-                                          (context, url, downloadProgress) =>
-                                              LinearProgressIndicator(
-                                        value: downloadProgress.progress,
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          const Icon(Icons.error),
-                                    ),
+                              // (snapshot
+                              //             .data![index]['attributes']
+                              //                 ['Imagenes']["data"]
+                              //             .length >
+                              //         1)
+                              // ? Image.asset(
+                              //     "${snapshot.data![index]['attributes']['Imagenes']["data"][1]["attributes"]["url"]}",
+                              //     width:
+                              //         MediaQuery.of(context).size.width * 1,
+                              //     height:
+                              //         MediaQuery.of(context).size.height *
+                              //             0.3,
+                              //     fit: BoxFit.cover,
+                              //     alignment: const Alignment(0, -0.5),
+                              //   )
+
+                              // ? CachedNetworkImage(
+                              //     imageUrl:
+                              //         '${Config.API_URL}${snapshot.data![index]['attributes']['Imagenes']["data"][1]["attributes"]["formats"]["small"]["url"]}',
+                              //     width:
+                              //         MediaQuery.of(context).size.width * 1,
+                              //     height:
+                              //         MediaQuery.of(context).size.height *
+                              //             0.3,
+                              //     fit: BoxFit.cover,
+                              //     alignment: const Alignment(0, -0.5),
+                              //     progressIndicatorBuilder: (context, url,
+                              //             downloadProgress) =>
+                              //         LinearProgressIndicator(
+                              //             value: downloadProgress.progress),
+                              //     errorWidget: (context, url, error) =>
+                              //         Icon(Icons.error),
+                              //   )
+                              // : Image.asset(
+                              //     "${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["url"]}",
+                              //     width:
+                              //         MediaQuery.of(context).size.width * 1,
+                              //     height:
+                              //         MediaQuery.of(context).size.height *
+                              //             0.3,
+                              //     fit: BoxFit.cover,
+                              //     alignment: const Alignment(0, -0.5),
+                              //   ),
+
+                              // CachedNetworkImage(
+                              //   imageUrl:
+                              //       'http://10.0.2.2:1337${snapshot.data![index]['attributes']['Imagenes']["data"][0]["attributes"]["formats"]["small"]["url"]}',
+                              //   width: MediaQuery.of(context).size.width * 1,
+                              //   height:
+                              //       MediaQuery.of(context).size.height * 0.3,
+                              //   fit: BoxFit.cover,
+                              //   alignment: const Alignment(0, -0.5),
+                              //   progressIndicatorBuilder:
+                              //       (context, url, downloadProgress) =>
+                              //           LinearProgressIndicator(
+                              //     value: downloadProgress.progress,
+                              //   ),
+                              //   errorWidget: (context, url, error) =>
+                              //       const Icon(Icons.error),
+                              // ),
                               const SizedBox(height: 8.0),
                               Text(
                                 '${snapshot.data![index]['attributes']['Nombre']}',
@@ -376,9 +396,6 @@ class Oradores extends StatelessWidget {
                                             DateTime fecha = DateTime.parse(
                                                     tema["attributes"]["Fecha"])
                                                 .toUtc();
-
-                                            fecha = fecha
-                                                .subtract(Duration(hours: 6));
 
                                             // Format the DateTime object into a more visual string
                                             String fechaFormateada = DateFormat(

@@ -1,0 +1,483 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "Titulo": "Dignidad y sinodalidad",
+        "Fecha": "2024-08-21T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 1,
+            "attributes": {
+              "Nombre": "José Vicente Nácher Tatay",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 2,
+                    "attributes": {
+                      "url": "assets/images/Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "thumbnail_Mons_José_Vicente_Nácher_Tatay.jpg",
+                          "hash": "thumbnail_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 104,
+                          "height": 156,
+                          "size": 4.14,
+                          "url": "assets/images/thumbnail_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                        },
+                        "medium": {
+                          "name": "medium_Mons_José_Vicente_Nácher_Tatay.jpg",
+                          "hash": "medium_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 500,
+                          "height": 750,
+                          "size": 50.43,
+                          "url": "assets/images/medium_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                        },
+                        "small": {
+                          "name": "small_Mons_José_Vicente_Nácher_Tatay.jpg",
+                          "hash": "small_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 333,
+                          "height": 500,
+                          "size": 26.13,
+                          "url": "assets/images/small_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                        },
+                        "large": {
+                          "name": "large_Mons_José_Vicente_Nácher_Tatay.jpg",
+                          "hash": "large_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 667,
+                          "height": 1000,
+                          "size": 81.69,
+                          "url": "assets/images/large_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "Titulo": "La dignidad humana en el magisterio del Papa Francisco",
+        "Fecha": "2024-08-21T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 2,
+            "attributes": {
+              "Nombre": "Juan Carlos Martínez",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 8,
+                    "attributes": {
+                      "url": "assets/images/Juan_Carlos_Martinez2_0_ce431378fc.jpg",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "thumbnail_Juan Carlos Martínez.webp",
+                          "hash": "thumbnail_Juan_Carlos_Martinez_15aed73bb0",
+                          "ext": ".webp",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 208,
+                          "height": 156,
+                          "size": 7.25,
+                          "url": "assets/images/thumbnail_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                        },
+                        "large": {
+                          "name": "large_Juan Carlos Martínez.jpg",
+                          "hash": "large_Juan_Carlos_Martinez_15aed73bb0",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 1000,
+                          "height": 751,
+                          "size": 42.74,
+                          "url": "assets/images/large_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                        },
+                        "medium": {
+                          "name": "medium_Juan Carlos Martínez.jpg",
+                          "hash": "medium_Juan_Carlos_Martinez_15aed73bb0",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 750,
+                          "height": 564,
+                          "size": 32.13,
+                          "url": "assets/images/medium_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                        },
+                        "small": {
+                          "name": "small_Juan Carlos Martínez.jpg",
+                          "hash": "small_Juan_Carlos_Martinez_15aed73bb0",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 500,
+                          "height": 376,
+                          "size": 20.5,
+                          "url": "assets/images/small_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "Titulo": "Una conciencia progresiva de la centralidad de la dignidad humana",
+        "Fecha": "2024-08-22T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 3,
+            "attributes": {
+              "Nombre": "Alda de Kawas",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 4,
+                    "attributes": {
+                      "url": "assets/images/alda_de_kawas.png",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "alda_de_kawas.png",
+                          "hash": "alda_de_kawas_5be036ab0b",
+                          "ext": ".png",
+                          "mime": "image/png",
+                          "path": null,
+                          "width": 156,
+                          "height": 156,
+                          "size": 3.29,
+                          "url": "assets/images/alda_de_kawas.png"
+                        },
+                        "small": {
+                          "name": "alda_de_kawas.png",
+                          "hash": "alda_de_kawas_5be036ab0b",
+                          "ext": ".png",
+                          "mime": "image/png",
+                          "path": null,
+                          "width": 500,
+                          "height": 500,
+                          "size": 13.21,
+                          "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                        },
+                        "medium": {
+                          "name": "alda_de_kawas.png",
+                          "hash": "alda_de_kawas_5be036ab0b",
+                          "ext": ".png",
+                          "mime": "image/png",
+                          "path": null,
+                          "width": 750,
+                          "height": 750,
+                          "size": 24.22,
+                          "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                        },
+                        "large": {
+                          "name": "alda_de_kawas.png",
+                          "hash": "alda_de_kawas_5be036ab0b",
+                          "ext": ".png",
+                          "mime": "image/png",
+                          "path": null,
+                          "width": 1000,
+                          "height": 1000,
+                          "size": 36.99,
+                          "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "Titulo": "La iglesia anuncia, promueve y se hace garante de la dignidad humana",
+        "Fecha": "2024-08-22T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "Nombre": "Dimas Rivera",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 5,
+                    "attributes": {
+                      "url": "assets/images/Dimas_Rivera2_0_acafc14020.jpg",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "thumbnail_P. Dimas Rivera.jpg",
+                          "hash": "thumbnail_Dimas_Rivera2_0_acafc14020",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 213,
+                          "height": 156,
+                          "size": 7.87,
+                          "url": "assets/images/thumbnail_Dimas_Rivera2_0_acafc14020.jpg"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "Titulo": "La dignidad, fundamento de los derechos y de los deberes humanos",
+        "Fecha": "2024-08-23T18:00:00.000Z",
+        "Inicio": "18:00:00.000",
+        "Final": "18:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 5,
+            "attributes": {
+              "Nombre": "Odir Fernández",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 6,
+                    "attributes": {
+                      "url": "assets/images/imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "thumbnail_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                          "hash": "thumbnail_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 208,
+                          "height": 156,
+                          "size": 6.07,
+                          "url": "assets/images/thumbnail_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                        },
+                        "large": {
+                          "name": "large_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                          "hash": "large_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 1000,
+                          "height": 750,
+                          "size": 64.1,
+                          "url": "assets/images/large_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                        },
+                        "medium": {
+                          "name": "medium_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                          "hash": "medium_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 750,
+                          "height": 563,
+                          "size": 42.11,
+                          "url": "assets/images/medium_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                        },
+                        "small": {
+                          "name": "small_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                          "hash": "small_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 500,
+                          "height": 375,
+                          "size": 22.29,
+                          "url": "assets/images/small_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "attributes": {
+        "Titulo": "Algunas violaciones graves de la dignidad humana",
+        "Fecha": "2024-08-23T19:00:00.000Z",
+        "Inicio": "19:00:00.000",
+        "Final": "19:45:00.000",
+        "Resumen": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Info de Relleno"
+              }
+            ]
+          }
+        ],
+        "orador": {
+          "data": {
+            "id": 6,
+            "attributes": {
+              "Nombre": "Nora Urbina Pineda",
+              "Imagenes": {
+                "data": [
+                  {
+                    "id": 9,
+                    "attributes": {
+                      "url": "assets/images/Nora_Urbina_Pineda2_0_f16136cc8b.jpg",
+                      "formats": {
+                        "thumbnail": {
+                          "name": "thumbnail_Nora Urbina.jpg",
+                          "hash": "thumbnail_Nora_Urbina_Pineda2_0_f16136cc8b",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 234,
+                          "height": 156,
+                          "size": 13.51,
+                          "url": "assets/images/thumbnail_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                        },
+                        "medium": {
+                          "name": "medium_Nora Urbina.jpg",
+                          "hash": "medium_Nora_Urbina_Pineda2_0_f16136cc8b",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 750,
+                          "height": 500,
+                          "size": 86.33,
+                          "url": "assets/images/medium_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                        },
+                        "large": {
+                          "name": "large_Nora Urbina.jpg",
+                          "hash": "large_Nora_Urbina_Pineda2_0_f16136cc8b",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 1000,
+                          "height": 667,
+                          "size": 133.62,
+                          "url": "assets/images/large_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                        },
+                        "small": {
+                          "name": "small_Nora Urbina.jpg",
+                          "hash": "small_Nora_Urbina_Pineda2_0_f16136cc8b",
+                          "ext": ".jpg",
+                          "mime": "image/jpeg",
+                          "path": null,
+                          "width": 500,
+                          "height": 333,
+                          "size": 45.21,
+                          "url": "assets/images/small_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 6
+    }
+  }
+}

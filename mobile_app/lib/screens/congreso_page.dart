@@ -41,6 +41,8 @@ class CongresoPage extends StatelessWidget {
       },
     ),
   ];
+
+  CongresoPage({super.key});
   @override
   Widget build(BuildContext context) {
     return ListView.separated(

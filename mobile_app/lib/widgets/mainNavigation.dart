@@ -50,7 +50,7 @@ class _MainNavigationState extends State<MainNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MyHomePage(),
+              builder: (context) => const MyHomePage(),
             ),
           );
         } else if (value == 1) {
@@ -60,7 +60,7 @@ class _MainNavigationState extends State<MainNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FormularioPage(),
+              builder: (context) => const FormularioPage(),
             ),
           );
 
@@ -78,7 +78,7 @@ class _MainNavigationState extends State<MainNavigation> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Oradores(),
+              builder: (context) => const Oradores(),
             ),
           );
           // } else if (value == 4) {

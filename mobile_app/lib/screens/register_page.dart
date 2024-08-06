@@ -141,7 +141,7 @@ class _FormularioPageState extends State<FormularioPage> {
                 ],
                 decoration: const InputDecoration(
                   counterText: '',
-                  labelText: 'DNI - Identidad',
+                  labelText: 'DNI',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
@@ -164,7 +164,7 @@ class _FormularioPageState extends State<FormularioPage> {
                 ],
                 controller: emailControler,
                 decoration: InputDecoration(
-                  labelText: 'Correo',
+                  labelText: 'Correo Electronico',
                   border: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10.0),
@@ -381,30 +381,33 @@ class _FormularioPageState extends State<FormularioPage> {
   }
 }
 
-Future<String> registerUser(body) async {
-  String result = '';
-  var response = await http.post(
-    Uri.parse('${Config.API_URL}/api/participantes'),
-    headers: {'Content-Type': 'application/json; charset=UTF-8'},
-    body: jsonEncode(body),
-  );
+Future<String> registerUser(Map<String, dynamic> body) async {
+  try {
+    final response = await http.post(
+      Uri.parse('${Config.API_URL}/api/participantes'),
+      headers: {'Content-Type': 'application/json; charset=UTF-8'},
+      body: jsonEncode(body),
+    );
 
-  if (response.statusCode == 400) {
-    List errors = const JsonDecoder().convert(response.body)['error']['details']
-        ['errors'];
-    errors.forEach((element) {
-      if (element['path'][0] == 'Correo') {
-        result = 'El correo electrónico ya está registrado';
+    if (response.statusCode == 201 || response.statusCode == 200) {
+      return 'Registro creado con éxito';
+    } else if (response.statusCode == 400) {
+      final errors =
+          jsonDecode(response.body)['error']['details']['errors'] as List;
+      for (var error in errors) {
+        if (error['path'][0] == 'Correo') {
+          return 'El correo electrónico ya está registrado';
+        }
+        if (error['path'][0] == 'Identidad') {
+          return 'El número de Identidad ya está registrado';
+        }
       }
-      if (element['path'][0] == 'Identidad') {
-        result = 'El numero de Identidad ya está registrado';
-      }
-    });
-    return result;
-  } else if (response.statusCode == 201 || response.statusCode == 200) {
-    return 'Registro creado con éxito';
-  } else {
-    return 'Error al crear el registro';
+      return 'Error al crear el registro: ${response.body}';
+    } else {
+      return 'Error al crear el registro: ${response.statusCode}';
+    }
+  } catch (e) {
+    return 'Error de conexión: $e';
   }
 }
 

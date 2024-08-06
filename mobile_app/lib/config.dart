@@ -1,3 +1,3 @@
 class Config {
-  static const API_URL = 'http://10.0.2.2:1337';
+  static const API_URL = 'https://24studiohnserver.com/api/congreso/';
 }

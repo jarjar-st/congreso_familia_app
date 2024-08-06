@@ -1,0 +1,501 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "Nombre": "José Vicente Nácher Tatay",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Es un eclesiástico misionero, sociólogo y teólogo católico español, afincado en Honduras. Es el actual arzobispo de Tegucigalpa, desde enero de 2023."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-15T16:59:30.294Z",
+        "updatedAt": "2024-07-15T17:45:25.908Z",
+        "publishedAt": "2024-07-15T17:16:12.286Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "Titulo": "Dignidad y sinodalidad",
+                "Fecha": "2024-08-21T18:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "url": "assets/images/Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_Mons_José_Vicente_Nácher_Tatay.jpg",
+                    "hash": "thumbnail_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 104,
+                    "height": 156,
+                    "size": 4.14,
+                    "url": "assets/images/thumbnail_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_Mons_José_Vicente_Nácher_Tatay.jpg",
+                    "hash": "medium_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 750,
+                    "size": 50.43,
+                    "url": "assets/images/medium_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                  },
+                  "small": {
+                    "name": "small_Mons_José_Vicente_Nácher_Tatay.jpg",
+                    "hash": "small_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 333,
+                    "height": 500,
+                    "size": 26.13,
+                    "url": "assets/images/small_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                  },
+                  "large": {
+                    "name": "large_Mons_José_Vicente_Nácher_Tatay.jpg",
+                    "hash": "large_Mons_Jose_Vicente_Nacher_Tatay_7dec121173",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 667,
+                    "height": 1000,
+                    "size": 81.69,
+                    "url": "assets/images/large_Mons_Jose_Vicente_Nacher_Tatay_7dec121173.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "Nombre": "Juan Carlos Martínez",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "El Padre Juan Carlos Martínez, sacerdote hondureño diocesano, es párroco de la Parroquia San Miguel Arcángel y decano del Decanato San Miguel Arcángel. Además, es el Secretario Ejecutivo Nacional de Pastoral Familiar. Tiene una maestría en Ciencias de la Familia y un doctorado en Teología Bíblica Pastoral. También es profesor de teología en el Seminario Mayor Nuestra Señora de Suyapa y en la UNICAH."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-16T16:37:46.696Z",
+        "updatedAt": "2024-07-24T09:04:32.670Z",
+        "publishedAt": "2024-07-16T16:37:55.092Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "Titulo": "La dignidad humana en el magisterio del Papa Francisco",
+                "Fecha": "2024-08-21T19:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 8,
+              "attributes": {
+                "url": "assets/images/Juan_Carlos_Martinez2_0_ce431378fc.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_Juan Carlos Martínez.jpg",
+                    "hash": "thumbnail_Juan_Carlos_Martinez2_0_ce431378fc",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 208,
+                    "height": 156,
+                    "size": 7.25,
+                    "url": "assets/images/thumbnail_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                  },
+                  "large": {
+                    "name": "large_Juan Carlos Martínez.jpg",
+                    "hash": "large_Juan_Carlos_Martinez2_0_ce431378fc",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 1000,
+                    "height": 751,
+                    "size": 42.74,
+                    "url": "assets/images/large_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_Juan Carlos Martínez.jpg",
+                    "hash": "medium_Juan_Carlos_Martinez2_0_ce431378fc",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 750,
+                    "height": 564,
+                    "size": 32.13,
+                    "url": "assets/images/medium_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                  },
+                  "small": {
+                    "name": "small_Juan Carlos Martínez.jpg",
+                    "hash": "small_Juan_Carlos_Martinez2_0_ce431378fc",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 376,
+                    "size": 20.5,
+                    "url": "assets/images/small_Juan_Carlos_Martinez2_0_ce431378fc.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "Nombre": "Alda de Kawas",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Más de 25 años de experiencia en los tribunales de la República de Honduras atendiendo temas civiles y societarios. Catedrática de Obligaciones, Contratos y Derecho de Familia en la Universidad Nacional Autónoma de Honduras. Directora de la Maestría en Derechos Humanos y Desarrollo de la Universidad Nacional Autónoma de Honduras. Socia de K&M Abogados, S.A."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-17T10:29:30.733Z",
+        "updatedAt": "2024-07-17T10:29:36.753Z",
+        "publishedAt": "2024-07-17T10:29:36.548Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 3,
+              "attributes": {
+                "Titulo": "Una conciencia progresiva de la centralidad de la dignidad humana",
+                "Fecha": "2024-08-22T18:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 4,
+              "attributes": {
+                "url": "assets/images/alda_de_kawas.png",
+                "formats": {
+                  "thumbnail": {
+                    "name": "alda_de_kawas.png",
+                    "hash": "alda_de_kawas_5be036ab0b",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 156,
+                    "height": 156,
+                    "size": 3.29,
+                    "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                  },
+                  "small": {
+                    "name": "alda_de_kawas.png",
+                    "hash": "alda_de_kawas_5be036ab0b",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 500,
+                    "height": 500,
+                    "size": 13.21,
+                    "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                  },
+                  "medium": {
+                    "name": "alda_de_kawas.png",
+                    "hash": "alda_de_kawas_5be036ab0b",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 750,
+                    "height": 750,
+                    "size": 24.22,
+                    "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                  },
+                  "large": {
+                    "name": "alda_de_kawas.png",
+                    "hash": "alda_de_kawas_5be036ab0b",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "path": null,
+                    "width": 1000,
+                    "height": 1000,
+                    "size": 36.99,
+                    "url": "assets/images/alda_de_kawas_5be036ab0b.png"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "Nombre": "Dimas Rivera",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "El Padre Dimas Francisco Rivera Varela es sacerdote desde el 4 de enero de 2004. Tiene una licenciatura en Catequética y actualmente es Director de la Catequesis Arquidiocesana, además de servir como párroco en la Parroquia El Espíritu Santo."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-17T11:04:19.574Z",
+        "updatedAt": "2024-07-17T11:04:26.960Z",
+        "publishedAt": "2024-07-17T11:04:26.755Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 4,
+              "attributes": {
+                "Titulo": "La iglesia anuncia, promueve y se hace garante de la dignidad humana",
+                "Fecha": "2024-08-22T19:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 5,
+              "attributes": {
+                "url": "assets/images/Dimas_Rivera2_0_acafc14020.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_P. Dimas Rivera.jpg",
+                    "hash": "thumbnail_Dimas_Rivera2_0_acafc14020",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 213,
+                    "height": 156,
+                    "size": 7.87,
+                    "url": "assets/images/thumbnail_Dimas_Rivera2_0_acafc14020.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "Nombre": "Odir Fernández",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Odir Aarón Fernández Flores es un abogado de 36 años, titulado por la Universidad Nacional Autónoma de Honduras (UNAH). Es especialista en Derecho Penal y Procesal Penal, título que obtuvo en la UNAH en 2013. Nuevo rector de la Universidad Nacional Autónoma de Honduras (UNAH)."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-17T14:06:26.162Z",
+        "updatedAt": "2024-07-24T17:50:47.372Z",
+        "publishedAt": "2024-07-17T14:06:31.928Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 5,
+              "attributes": {
+                "Titulo": "La dignidad, fundamento de los derechos y de los deberes humanos",
+                "Fecha": "2024-08-23T18:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 6,
+              "attributes": {
+                "url": "assets/images/imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                    "hash": "thumbnail_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 208,
+                    "height": 156,
+                    "size": 6.07,
+                    "url": "assets/images/thumbnail_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                  },
+                  "large": {
+                    "name": "large_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                    "hash": "large_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 1000,
+                    "height": 750,
+                    "size": 64.1,
+                    "url": "assets/images/large_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                    "hash": "medium_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 750,
+                    "height": 563,
+                    "size": 42.11,
+                    "url": "assets/images/medium_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                  },
+                  "small": {
+                    "name": "small_imagen-odir-fernandez-unah_6255102_20231213182749.jpg",
+                    "hash": "small_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 375,
+                    "size": 22.29,
+                    "url": "assets/images/small_imagen_odir_fernandez_unah_6255102_20231213182749_7feab65d6d.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 6,
+      "attributes": {
+        "Nombre": "Nora Urbina Pineda",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Nora Urbina Pineda ha estado involucrada en el sistema judicial de Honduras desde sus días como estudiante de derecho, comenzando como escribiente en los tribunales. Tras graduarse, se convirtió en Defensora Pública en la Corte Suprema de Justicia, proporcionando defensa penal gratuita a personas de bajos recursos."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-07-17T14:20:13.600Z",
+        "updatedAt": "2024-07-24T17:49:36.061Z",
+        "publishedAt": "2024-07-17T14:20:18.314Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 6,
+              "attributes": {
+                "Titulo": "Algunas violaciones graves de la dignidad humana",
+                "Fecha": "2024-08-23T19:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 9,
+              "attributes": {
+                "url": "assets/images/Nora_Urbina_Pineda2_0_f16136cc8b.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_Nora Urbina.jpg",
+                    "hash": "thumbnail_Nora_Urbina_Pineda2_0_f16136cc8b",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 234,
+                    "height": 156,
+                    "size": 13.51,
+                    "url": "assets/images/thumbnail_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_Nora Urbina.jpg",
+                    "hash": "medium_Nora_Urbina_Pineda2_0_f16136cc8b",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 750,
+                    "height": 500,
+                    "size": 86.33,
+                    "url": "assets/images/medium_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                  },
+                  "large": {
+                    "name": "large_Nora Urbina.jpg",
+                    "hash": "large_Nora_Urbina_Pineda2_0_f16136cc8b",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 1000,
+                    "height": 667,
+                    "size": 133.62,
+                    "url": "assets/images/large_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                  },
+                  "small": {
+                    "name": "small_Nora Urbina.jpg",
+                    "hash": "small_Nora_Urbina_Pineda2_0_f16136cc8b",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 333,
+                    "size": 45.21,
+                    "url": "assets/images/small_Nora_Urbina_Pineda2_0_f16136cc8b.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 6
+    }
+  }
+}

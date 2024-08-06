@@ -1,0 +1,582 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "Nombre": "Oscar Andres Rodriguez",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solo es un orador de prueba esta es normal pero donde diga "
+              },
+              {
+                "type": "text",
+                "text": "negrita ",
+                "bold": true
+              },
+              {
+                "type": "text",
+                "text": "debe ir en "
+              },
+              {
+                "type": "text",
+                "text": "negrita ",
+                "bold": true
+              },
+              {
+                "text": "y en donde diga ",
+                "type": "text"
+              },
+              {
+                "type": "text",
+                "text": "cursiva ",
+                "italic": true
+              },
+              {
+                "type": "text",
+                "text": "sera "
+              },
+              {
+                "type": "text",
+                "text": "cursiva ",
+                "italic": true
+              },
+              {
+                "text": "y despues en donde diga ",
+                "type": "text"
+              },
+              {
+                "type": "text",
+                "text": "prueba ",
+                "bold": true,
+                "italic": true
+              },
+              {
+                "type": "text",
+                "text": "debe ser la comibinacion de ambas ya que es una "
+              },
+              {
+                "type": "text",
+                "text": "prueba",
+                "bold": true,
+                "italic": true
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-02-23T15:26:03.774Z",
+        "updatedAt": "2024-03-01T17:16:53.936Z",
+        "publishedAt": "2024-02-23T15:32:20.137Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "Titulo": "Charla Test 1",
+                "Fecha": "2024-02-24T16:00:00.000Z"
+              }
+            },
+            {
+              "id": 5,
+              "attributes": {
+                "Titulo": "Charla Test 3",
+                "Fecha": "2024-02-24T19:30:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 9,
+              "attributes": {
+                "url": "assets/images/Cardenal_Oscar_07467a8478.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_CardenalOscar.jpg",
+                    "hash": "thumbnail_Cardenal_Oscar_07467a8478",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 114,
+                    "height": 156,
+                    "size": 2.91,
+                    "url": "assets/images/thumbnail_Cardenal_Oscar_07467a8478.jpg"
+                  },
+                  "small": {
+                    "name": "small_CardenalOscar.jpg",
+                    "hash": "small_Cardenal_Oscar_07467a8478",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 364,
+                    "height": 500,
+                    "size": 23.42,
+                    "url": "assets/images/small_Cardenal_Oscar_07467a8478.jpg"
+                  }
+                }
+              }
+            },
+            {
+              "id": 10,
+              "attributes": {
+                "url": "assets/images/Cardenal_Oscar_Primero_6f52616619.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_CardenalOscarPrimero.jpg",
+                    "hash": "thumbnail_Cardenal_Oscar_Primero_6f52616619",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 245,
+                    "height": 122,
+                    "size": 7.4,
+                    "url": "assets/images/thumbnail_Cardenal_Oscar_Primero_6f52616619.jpg"
+                  },
+                  "small": {
+                    "name": "small_CardenalOscarPrimero.jpg",
+                    "hash": "small_Cardenal_Oscar_Primero_6f52616619",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 250,
+                    "size": 22.37,
+                    "url": "assets/images/small_Cardenal_Oscar_Primero_6f52616619.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "Nombre": "Gracia Zuniga de Villeda",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Otro orador mas pero en este pondremos bullets:"
+              }
+            ]
+          },
+          {
+            "type": "list",
+            "format": "unordered",
+            "children": [
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Este todo en negrita",
+                    "bold": true
+                  }
+                ]
+              },
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "este solo palabra "
+                  },
+                  {
+                    "type": "text",
+                    "text": "negrita",
+                    "bold": true
+                  }
+                ]
+              },
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "esto todo en cursiva",
+                    "italic": true
+                  }
+                ]
+              },
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "este solo la palabra "
+                  },
+                  {
+                    "type": "text",
+                    "text": "cursiva",
+                    "italic": true
+                  }
+                ]
+              },
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "en este todo en negrita y cursiva",
+                    "italic": true,
+                    "bold": true
+                  }
+                ]
+              },
+              {
+                "type": "list-item",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "en este "
+                  },
+                  {
+                    "type": "text",
+                    "text": "negrita ",
+                    "bold": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "y "
+                  },
+                  {
+                    "type": "text",
+                    "text": "cursiva ",
+                    "italic": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "solo las palabras"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-02-23T15:28:50.827Z",
+        "updatedAt": "2024-03-01T17:57:01.633Z",
+        "publishedAt": "2024-02-23T15:32:20.137Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "Titulo": "El reto de la santidad hoy",
+                "Fecha": "2024-02-24T17:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 11,
+              "attributes": {
+                "url": "assets/images/Gracia_Zuniga_de_Villeda_ed3ebeea9a.webp",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_Gracia_Zuniga de_Villeda.webp",
+                    "hash": "thumbnail_Gracia_Zuniga_de_Villeda_ed3ebeea9a",
+                    "ext": ".webp",
+                    "mime": "image/webp",
+                    "path": null,
+                    "width": 106,
+                    "height": 156,
+                    "size": 3.12,
+                    "url": "assets/images/thumbnail_Gracia_Zuniga_de_Villeda_ed3ebeea9a.webp"
+                  }
+                }
+              }
+            },
+            {
+              "id": 12,
+              "attributes": {
+                "url": "assets/images/Gracia_Zuniga_de_Villeda_Primera_8aacd9a485.webp",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_Gracia_Zuniga_de_Villeda_Primera.webp",
+                    "hash": "thumbnail_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485",
+                    "ext": ".webp",
+                    "mime": "image/webp",
+                    "path": null,
+                    "width": 234,
+                    "height": 156,
+                    "size": 6.56,
+                    "url": "assets/images/thumbnail_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485.webp"
+                  },
+                  "medium": {
+                    "name": "medium_Gracia_Zuniga_de_Villeda_Primera.webp",
+                    "hash": "medium_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485",
+                    "ext": ".webp",
+                    "mime": "image/webp",
+                    "path": null,
+                    "width": 750,
+                    "height": 500,
+                    "size": 29.56,
+                    "url": "assets/images/medium_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485.webp"
+                  },
+                  "small": {
+                    "name": "small_Gracia_Zuniga_de_Villeda_Primera.webp",
+                    "hash": "small_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485",
+                    "ext": ".webp",
+                    "mime": "image/webp",
+                    "path": null,
+                    "width": 500,
+                    "height": 333,
+                    "size": 17.45,
+                    "url": "assets/images/small_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485.webp"
+                  },
+                  "large": {
+                    "name": "large_Gracia_Zuniga_de_Villeda_Primera.webp",
+                    "hash": "large_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485",
+                    "ext": ".webp",
+                    "mime": "image/webp",
+                    "path": null,
+                    "width": 1000,
+                    "height": 667,
+                    "size": 42.12,
+                    "url": "assets/images/large_Gracia_Zuniga_de_Villeda_Primera_8aacd9a485.webp"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "Nombre": "Orador 3",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-02-23T15:30:42.556Z",
+        "updatedAt": "2024-02-23T15:30:42.556Z",
+        "publishedAt": "2024-02-23T15:32:20.137Z",
+        "horarios": {
+          "data": [
+            {
+              "id": 6,
+              "attributes": {
+                "Titulo": "Charla Test 4",
+                "Fecha": "2024-02-24T21:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 5,
+              "attributes": {
+                "url": "assets/images/vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg",
+                    "hash": "thumbnail_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 104,
+                    "height": 156,
+                    "size": 4.3,
+                    "url": "assets/images/thumbnail_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg",
+                    "hash": "medium_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 750,
+                    "size": 45.08,
+                    "url": "assets/images/medium_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f.jpg"
+                  },
+                  "small": {
+                    "name": "small_vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg",
+                    "hash": "small_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 333,
+                    "height": 500,
+                    "size": 23.43,
+                    "url": "assets/images/small_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f.jpg"
+                  },
+                  "large": {
+                    "name": "large_vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg",
+                    "hash": "large_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 667,
+                    "height": 1000,
+                    "size": 73.12,
+                    "url": "assets/images/large_vicky_hladynets_C8_Ta0gw_Pb_Qg_unsplash_c85b080a5f.jpg"
+                  }
+                }
+              }
+            },
+            {
+              "id": 6,
+              "attributes": {
+                "url": "assets/images/neom_TA_5hw14_Coh4_unsplash_42b47a4da9.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_neom-TA5hw14Coh4-unsplash.jpg",
+                    "hash": "thumbnail_neom_TA_5hw14_Coh4_unsplash_42b47a4da9",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 234,
+                    "height": 156,
+                    "size": 5.82,
+                    "url": "assets/images/thumbnail_neom_TA_5hw14_Coh4_unsplash_42b47a4da9.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_neom-TA5hw14Coh4-unsplash.jpg",
+                    "hash": "medium_neom_TA_5hw14_Coh4_unsplash_42b47a4da9",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 750,
+                    "height": 500,
+                    "size": 38.79,
+                    "url": "assets/images/medium_neom_TA_5hw14_Coh4_unsplash_42b47a4da9.jpg"
+                  },
+                  "large": {
+                    "name": "large_neom-TA5hw14Coh4-unsplash.jpg",
+                    "hash": "large_neom_TA_5hw14_Coh4_unsplash_42b47a4da9",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 1000,
+                    "height": 667,
+                    "size": 64.42,
+                    "url": "assets/images/large_neom_TA_5hw14_Coh4_unsplash_42b47a4da9.jpg"
+                  },
+                  "small": {
+                    "name": "small_neom-TA5hw14Coh4-unsplash.jpg",
+                    "hash": "small_neom_TA_5hw14_Coh4_unsplash_42b47a4da9",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 333,
+                    "size": 19.63,
+                    "url": "assets/images/small_neom_TA_5hw14_Coh4_unsplash_42b47a4da9.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "Nombre": "Orador 4",
+        "Biografia": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              }
+            ]
+          }
+        ],
+        "createdAt": "2024-02-23T15:47:37.222Z",
+        "updatedAt": "2024-02-23T15:47:39.940Z",
+        "publishedAt": "2024-02-23T15:47:39.937Z",
+        "horarios": {
+          "data": []
+        },
+        "Imagenes": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "url": "assets/images/luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d.jpg",
+                "formats": {
+                  "thumbnail": {
+                    "name": "thumbnail_luis-villasmil-6qf1uljGpU4-unsplash.jpg",
+                    "hash": "thumbnail_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 233,
+                    "height": 156,
+                    "size": 5.92,
+                    "url": "assets/images/thumbnail_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d.jpg"
+                  },
+                  "large": {
+                    "name": "large_luis-villasmil-6qf1uljGpU4-unsplash.jpg",
+                    "hash": "large_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 1000,
+                    "height": 669,
+                    "size": 48.82,
+                    "url": "assets/images/large_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d.jpg"
+                  },
+                  "medium": {
+                    "name": "medium_luis-villasmil-6qf1uljGpU4-unsplash.jpg",
+                    "hash": "medium_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 750,
+                    "height": 502,
+                    "size": 30.65,
+                    "url": "assets/images/medium_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d.jpg"
+                  },
+                  "small": {
+                    "name": "small_luis-villasmil-6qf1uljGpU4-unsplash.jpg",
+                    "hash": "small_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d",
+                    "ext": ".jpg",
+                    "mime": "image/jpeg",
+                    "path": null,
+                    "width": 500,
+                    "height": 335,
+                    "size": 16.61,
+                    "url": "assets/images/small_luis_villasmil_6qf1ulj_Gp_U4_unsplash_b09022eb7d.jpg"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}
